@@ -1,10 +1,12 @@
+import React from 'react';
+
 class TimeSelector extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             hour: "10",
             minute: "00",
-            isAM: true,
+            timeOfDay: "am",
         }
     }
 
@@ -13,6 +15,7 @@ class TimeSelector extends React.Component {
         this.setState({hour: e.target.value})
     }
 
+    // method to handle minute changes
     handleMinuteChange(e) {
         this.setState({minute: e.target.value})
     }
@@ -24,8 +27,14 @@ class TimeSelector extends React.Component {
               <form>
                 <input value={this.state.hour} onChange={this.handleHourChange} ontype="text"/>
                 <input value={this.state.minute} onChange={this.handleMinuteChange} type="text"/>
+                <select value={this.state.timeOfDay} onChange={this.handleTimeOfDayChange} name="am-pm" id="am-pm">
+                    <option value="am">AM</option>
+                    <option value="pm">PM</option>
+                </select>
               </form>
             </div>
         );
     }
 }
+
+export default TimeSelector;
