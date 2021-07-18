@@ -8,6 +8,10 @@ class TimeSelector extends React.Component {
             minute: "00",
             timeOfDay: "am",
         }
+
+        this.handleHourChange = this.handleHourChange.bind(this)
+        this.handleMinuteChange = this.handleMinuteChange.bind(this)
+        this.handleTimeOfDayChange = this.handleTimeOfDayChange.bind(this)
     }
 
     // method to handle hour changes
@@ -18,6 +22,11 @@ class TimeSelector extends React.Component {
     // method to handle minute changes
     handleMinuteChange(e) {
         this.setState({minute: e.target.value})
+    }
+
+    // method to handle time of day change
+    handleTimeOfDayChange(e) {
+        this.setState({timeOfDay: e.target.value})
     }
 
     render() {
